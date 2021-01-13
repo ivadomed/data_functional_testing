@@ -13,3 +13,6 @@ Light-weighted data for our functional tests
 * temporary\_results.csv: Used to test `ivadomed/scripts/compare_models.py`.
 
 * sub-unf02/sub-unf03: copies of sub-unf01
+
+
+THIS IS A TEST COMMIT
