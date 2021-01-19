@@ -1,6 +1,6 @@
 {
   "command": "train",
-  "gpu": [7],
+  "gpu_ids": [7],
   "log_directory": "tmp/logs",
   "debugging": false,
   "model_name": "unit_test",
