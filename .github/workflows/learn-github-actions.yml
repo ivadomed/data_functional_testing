@@ -8,4 +8,17 @@ jobs:
       - uses: actions/setup-node@v1
       - run: npm install -g bats
       - run: bats -v
-      - run: echo "${{ steps.outputs.all }}"
+      - id: files
+      uses: actions/setup-node@v1
+        - run: |
+            for changed_file in ${{ steps.files.outputs.all }}; do
+              echo "Do something with this ${changed_file}."
+            done
+      # run: |
+      #   find ./myfolder/ -type f -name "README.md" | while read fname; do
+      #     dirname=`dirname "$fname"`
+      #     foldername=`basename "$dirname"`
+      #     filename=`basename "$fname"`
+      #     newname=`echo "$dirname" | sed -e "s/ /_/g"`
+      #     cp "${dirname}/$filename" "./docs/_myfolder/${foldername}.md"
+      #   done
