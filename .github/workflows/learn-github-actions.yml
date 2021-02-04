@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
-      - run: git diff origin/master HEAD
+      - run: git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ origin/master HEAD
       - uses: actions/setup-node@v1
       - run: npm install -g bats
       - run: bats -v
