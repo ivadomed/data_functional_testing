@@ -4,16 +4,17 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - id: files
+        uses: actions/checkout@v2
+        run: |
+                for changed_file in ${{ steps.files.outputs.all }}; do
+                    echo "Do something with this ${changed_file}."
+                done
       - uses: actions/setup-node@v1
       - run: npm install -g bats
       - run: bats -v
-      - id: files
-      uses: actions/setup-node@v1
-        - run: |
-            for changed_file in ${{ steps.files.outputs.all }}; do
-              echo "Do something with this ${changed_file}."
-            done
+
+
       # run: |
       #   find ./myfolder/ -type f -name "README.md" | while read fname; do
       #     dirname=`dirname "$fname"`
