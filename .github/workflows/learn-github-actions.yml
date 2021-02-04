@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
-      - run: git diff --name-only ${{ github.event.head_ref }} ${{ github.sha }}
+      - run: |
+        git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+      - run: git diff origin/master HEAD  
       - uses: actions/setup-node@v1
       - run: npm install -g bats
       - run: bats -v
