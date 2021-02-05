@@ -8,7 +8,7 @@ jobs:
             - run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
             - run: git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ origin/master HEAD
             - run: |
-            git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ origin/master HEAD
+                git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ origin/master HEAD
             # - run: |
             #   chmod +x "${GITHUB_WORKSPACE}/.github/learn-github-actions.sh"
             #   # run script
