@@ -1,5 +1,18 @@
 #!/bin/bash
 
+MAX_FILE_SIZE=500000
 echo "Hello, world!"
-FILES=$(git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ origin/master HEAD)
+FILES=$(git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ HEAD origin/master)
 echo "${FILES}"
+
+# file_list=($FILES)
+# for i in "${file_list[@]}"
+# do
+# 	echo $i
+#     FILE_SIZE=$(stat -f%z $i)
+#     if [ ${FILE_SIZE} -gt ${MAX_FILE_SIZE} ]
+#     then
+#         echo File $i is too large!
+#         exit 1
+#     fi
+# done
