@@ -5,7 +5,7 @@ echo "Hello, world!"
 FILES=$(git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ HEAD origin/master)
 echo "${FILES}"
 echo `git branch -r`
-git checkout master
+git diff --name-only "$GITHUB_BASE_REF..$GITHUB_SHA"
 git diff --name-only `git merge-base origin/master ${GITHUB_REF#refs/heads/}`..${GITHUB_REF#refs/heads/}
 git diff --name-only origin/master...${GITHUB_REF#refs/heads/}
 
