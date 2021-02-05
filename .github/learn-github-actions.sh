@@ -4,7 +4,8 @@ MAX_FILE_SIZE=500000
 echo "Hello, world!"
 FILES=$(git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ HEAD origin/master)
 echo "${FILES}"
-git diff --name-only `git merge-base master ${GITHUB_REF#refs/heads/}`..${GITHUB_REF#refs/heads/}
+echo `git branch -r`
+git diff --name-only `git merge-base origin/master ${GITHUB_REF#refs/heads/}`..${GITHUB_REF#refs/heads/}
 
 # file_list=($FILES)
 # for i in "${file_list[@]}"
