@@ -8,9 +8,11 @@ jobs:
       - run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
       - run: git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ origin/master HEAD
       - run: |
-        chmod +x "${GITHUB_WORKSPACE}/.github/learn-github-actions.sh"
-        # run script
-        "${GITHUB_WORKSPACE}/.github/learn-github-actions.sh"
+        git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ origin/master HEAD
+      # - run: |
+      #   chmod +x "${GITHUB_WORKSPACE}/.github/learn-github-actions.sh"
+      #   # run script
+      #   "${GITHUB_WORKSPACE}/.github/learn-github-actions.sh"
       - uses: actions/setup-node@v1
       - run: npm install -g bats
       - run: bats -v
