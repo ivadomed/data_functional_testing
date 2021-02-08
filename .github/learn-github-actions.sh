@@ -2,7 +2,7 @@
 
 MAX_FILE_SIZE=500000
 echo "Hello, world!"
-FILES=$(git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ HEAD origin/master)
+FILES=$(git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ origin/master HEAD)
 echo "${FILES}"
 echo `git branch -r`
 echo "${GITHUB_BASE_REF}"
