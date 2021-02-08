@@ -6,6 +6,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - run: git fetch --no-tags --prune --depth=100 origin +refs/heads/*:refs/remotes/origin/*
+            - run: git fetch origin master
             - run: git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ origin/master HEAD
             - run: echo "${GITHUB_REF#refs/heads/}"
             - run: |
