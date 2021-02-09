@@ -10,10 +10,15 @@ echo "${GITHUB_REF#refs/heads/}"
 echo "${GITHUB_SHA}"
 # git diff --name-only "$GITHUB_BASE_REF..$GITHUB_SHA"
 git diff --name-only origin/master...${GITHUB_REF#refs/heads/}
+echo "line1"
 git diff --name-only origin/master..${GITHUB_REF#refs/heads/}
+echo "line2"
 git diff --name-only origin/master..HEAD
+echo "line3"
 git diff --name-only ${GITHUB_REF#refs/heads/} `git merge-base origin/master ${GITHUB_REF#refs/heads/}`
+echo "line4"
 git diff --name-only `git merge-base origin/master ${GITHUB_REF#refs/heads/}` ${GITHUB_REF#refs/heads/}
+echo "line5"
 git diff --name-only `git merge-base origin/master ${GITHUB_REF#refs/heads/}`..${GITHUB_REF#refs/heads/}
 # git diff --name-only origin/master...${GITHUB_REF#refs/heads/}
 
