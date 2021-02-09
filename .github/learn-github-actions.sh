@@ -13,7 +13,7 @@ git diff --name-only origin/master...${GITHUB_REF#refs/heads/}
 echo "line1"
 git diff --name-only origin/master..${GITHUB_REF#refs/heads/}
 echo "line2"
-git diff --name-only origin/master..HEAD
+git diff --name-only HEAD..origin/master
 echo "line3"
 git diff --name-only ${GITHUB_REF#refs/heads/} `git merge-base origin/master ${GITHUB_REF#refs/heads/}`
 echo "line4"
