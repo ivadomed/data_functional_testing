@@ -8,6 +8,7 @@ jobs:
             - run: git fetch --no-tags --prune --depth=1000 origin +refs/heads/*:refs/remotes/origin/*
             - run: git diff --name-only --line-prefix=`git rev-parse --show-toplevel`/ origin/master HEAD
             - run: echo "${GITHUB_REF#refs/heads/}"
+            - run: git fetch origin/master
             - name: Run learn-github-actions.sh
               run: |
                 chmod +x "${GITHUB_WORKSPACE}/.github/learn-github-actions.sh"
