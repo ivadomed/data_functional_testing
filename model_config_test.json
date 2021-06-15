@@ -115,7 +115,6 @@
       "wspace": 0.75,
       "hspace": 0.75
     },
-    "NumpyToTensor": {},
     "NormalizeInstance": {
       "applied_to": ["im"]
     }
