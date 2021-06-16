@@ -128,7 +128,6 @@
     "CenterCrop":{
        "size": [128, 128],
        "preprocessing": true},
-    "NumpyToTensor": {},
     "NormalizeInstance": {
       "applied_to": ["im"]
     }
