@@ -3,23 +3,23 @@
     "gpu_ids": [0],
     "path_output": "spineGeneric",
     "model_name": "my_model",
-    "debugging": true,
+    "debugging": false,
     "object_detection_params": {
-        "object_detection_path": "data_example_spinegeneric/trained_model/seg_sc_t1-t2-t2s-mt",
-        "safety_factor": [2.0, 2.0, 1.0]
+        "object_detection_path": null,
+        "safety_factor": [1.0, 1.0, 1.0]
     },
     "loader_parameters": {
         "path_data": ["data_example_spinegeneric"],
         "subject_selection": {"n": [], "metadata": [], "value": []},
-        "target_suffix": ["_csfseg-manual"],
+        "target_suffix": ["_seg-manual"],
         "extensions": [".nii.gz"],
         "roi_params": {
             "suffix": null,
             "slice_filter_roi": null
         },
         "contrast_params": {
-            "training_validation": ["T2w"],
-            "testing": ["T2w"],
+            "training_validation": ["T1w", "T2w", "T2star"],
+            "testing": ["T1w", "T2w", "T2star"],
             "balance": {}
         },
         "slice_filter_params": {
@@ -112,7 +112,7 @@
             "dspace": 1
         },
         "CenterCrop": {
-            "size": [64, 64]},
+            "size": [128, 128]},
         "RandomAffine": {
             "degrees": 5,
             "scale": [0.1, 0.1],

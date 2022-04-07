@@ -1,0 +1,11 @@
+{
+    "training_parameters": {
+        "batch_size": [2, 64],
+        "loss": [
+            {"name": "DiceLoss"},
+            {"name": "FocalLoss", "gamma": 0.2, "alpha" : 0.5}
+        ]
+    },
+    "default_model": {"depth": [2, 3, 4]}
+}
+
